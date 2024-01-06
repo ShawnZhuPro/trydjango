@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% comment %} GET is the default method for a form {% endcomment %}
+  {% comment %} 
+  <form action='http://www.google.com/search' method='GET'>
+    <input type='text' name='q' placeholder='Your search'/>
+    <input type='submit' value='Save' />
+  </form> 
+  {% endcomment %}
+
+  {% comment %} {% csrf_token %} -> Way to bypass security feature {% endcomment %}
+  {% comment %} <form action='.' method='POST'> {% csrf_token %} 
+    <input type='text' name='title' placeholder='Your Title'/>
+    <input type='submit' value='Save' />
+  </form> {% endcomment %}
+
+  <form action='.' method='POST'> {% csrf_token %} 
+    {% comment %} paragraph form {% endcomment %}
+    {{ form.as_p }} 
+    <input type='submit' value='Save' />
+  </form>
+
+{% endblock %}
